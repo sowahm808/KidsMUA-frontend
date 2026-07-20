@@ -1,0 +1,2 @@
+import { Directive, TemplateRef, ViewContainerRef, effect, inject, input } from '@angular/core';import { UserRole } from '../../core/auth/auth.models';import { AuthStore } from '../../core/auth/auth.store';
+@Directive({selector:'[appHasRole]',standalone:true}) export class HasRoleDirective{readonly appHasRole=input.required<UserRole>();private tpl=inject(TemplateRef<unknown>);private vcr=inject(ViewContainerRef);private auth=inject(AuthStore);constructor(){effect(()=>{this.vcr.clear();if(this.auth.hasRole(this.appHasRole())) this.vcr.createEmbeddedView(this.tpl);});}}

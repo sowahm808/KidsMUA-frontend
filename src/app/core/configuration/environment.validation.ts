@@ -1,0 +1,2 @@
+import { AppEnvironment } from '../../../environments/environment';
+export function validateEnvironment(env: AppEnvironment): void {const missing:string[]=[]; if(!env.apiBaseUrl) missing.push('apiBaseUrl'); if(!env.applicationName) missing.push('applicationName'); if(!env.supportEmail) missing.push('supportEmail'); if(missing.length) throw new Error(`Missing required environment configuration: ${missing.join(', ')}`);}
