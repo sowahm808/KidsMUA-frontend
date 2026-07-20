@@ -1,0 +1,1 @@
+export interface ApiError{status:number;code:string;message:string;correlationId?:string;validationErrors?:Record<string,string[]>;} export interface PageRequest{pageIndex:number;pageSize:number;sort?:string;filter?:string;} export interface PageResult<T>{items:T[];total:number;pageIndex:number;pageSize:number;}

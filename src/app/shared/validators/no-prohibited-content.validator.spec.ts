@@ -1,0 +1,2 @@
+import { FormControl } from '@angular/forms';import { describe, expect, it } from 'vitest';import { noProhibitedContent } from './no-prohibited-content.validator';
+describe('noProhibitedContent',()=>{it('rejects unsafe personal-detail prompts',()=>{expect(noProhibitedContent(new FormControl('send your phone number') as FormControl<string>)).toEqual({prohibitedContent:true});});it('allows encouragement',()=>{expect(noProhibitedContent(new FormControl('Keep reading with courage') as FormControl<string>)).toBeNull();});});
